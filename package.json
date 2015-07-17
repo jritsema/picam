@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "camera solution for raspberry pi",
   "main": "index.js",
-  "scripts": {
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "https://jritsema@bitbucket.org/jritsema/picam.git"
@@ -15,5 +14,11 @@
     "pi"
   ],
   "author": "John Ritsema",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "express": "^4.13.1"
+  },
+  "dependencies": {
+    "express": "^4.13.1"
+  }
 }
