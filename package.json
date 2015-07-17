@@ -1,0 +1,20 @@
+{
+  "name": "picam",
+  "version": "1.0.0",
+  "description": "camera solution for raspberry pi",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://jritsema@bitbucket.org/jritsema/picam.git"
+  },
+  "keywords": [
+    "raspberrypi",
+    "camera",
+    "pi"
+  ],
+  "author": "John Ritsema",
+  "license": "ISC"
+}
