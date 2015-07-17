@@ -16,3 +16,14 @@ A camera solution for raspberry pi.
 - setup `$ git push pi master`
 
 - automatically start node server when pi starts
+
+### tech stack
+
+- node
+- express
+[get /photo] -> return image
+[post /photo] -> take picture
+
+- react
+- react-bootstrap
+- browserify
