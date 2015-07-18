@@ -17,7 +17,7 @@ function takePicture(callback) {
   });
 
   // //testing
-  console.log('click');  
+  //console.log('click');  
   // if (callback) 
   //   callback(0);  
   // //testing
