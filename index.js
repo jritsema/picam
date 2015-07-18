@@ -42,12 +42,12 @@ var server = app.listen(9000, function () {
   console.log('picam listening at http://%s:%s', host, port);
 });
 
-function takePictureAndWait() {
+function takePictureAndScheduleNext() {
   takePicture(scheduleNextPhoto);
 }
 
 function scheduleNextPhoto() {
-  setTimeout(takePictureAndWait, options.photoInterval * 1000);  
+  setTimeout(takePictureAndScheduleNext, options.photoInterval * 1000);  
 }
 
 //take a picture every x seconds
