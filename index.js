@@ -8,7 +8,6 @@ var options = {
 };
 
 function takePicture(callback) {
-
   var raspistill = process.spawn('raspistill', 
     [ '-o', options.photoPath + options.fileName, '-n', '-w', '1024', '-h', '768' ]);
   
@@ -18,7 +17,7 @@ function takePicture(callback) {
   });
 
   // //testing
-  // console.log('click');  
+  console.log('click');  
   // if (callback) 
   //   callback(0);  
   // //testing
