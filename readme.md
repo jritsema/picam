@@ -1,29 +1,16 @@
 picam
 ======
 
-A camera solution for raspberry pi.
+An API for controlling a raspberry pi camera.  The server take a picture every X seconds and also allows you to take a picture on demand and configure the options.  You can only access one photo at a time.
 
-### What?
 
-- a node server that 
-  - serves up a react/bootstrap app 
-  - allows user to remotely take photos or set an automatic interval or timer
-  - displays photos
-  - static file server that serves up photo image files
+### API
 
-- add a camera widget to the family-dashboard
+take a picture = `curl -X POST http://raspberrypi:9000/camera` 
 
-- setup `$ git push pi master`
+get the picture = `curl http://raspberrypi:9000/photo.jpg`
 
-- automatically start node server when pi starts
+configure photo options (raspistill) = `curl -X POST http://raspberrypi:9000/camera/options`
 
-### tech stack
 
-- node
-- express
-[get /photo] -> return image
-[post /photo] -> take picture
-
-- react
-- react-bootstrap
-- browserify
+(build a UI in family-dashboard admin for taking pictures on demand and configuring options)

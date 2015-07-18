@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "camera solution for raspberry pi",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "start": "nodemon ."
+  },
   "repository": {
     "type": "git",
     "url": "https://jritsema@bitbucket.org/jritsema/picam.git"
