@@ -4,7 +4,7 @@ var process = require('child_process');
 var options = {
   photoPath: __dirname + '/photos/',
   fileName: 'photo.jpg',
-  photoInterval: 5
+  photoInterval: 30
 };
 
 function takePicture(callback) {
