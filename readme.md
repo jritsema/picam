@@ -13,4 +13,4 @@ get the picture = `curl http://raspberrypi:9000/photo.jpg`
 configure photo options (raspistill) = `curl -X POST http://raspberrypi:9000/camera/options`
 
 
-(build a UI in family-dashboard admin for taking pictures on demand and configuring options)
+**next:** build a UI in family-dashboard admin for taking pictures on demand and configuring options
