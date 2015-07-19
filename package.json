@@ -1,7 +1,7 @@
 {
   "name": "picam",
   "version": "1.0.0",
-  "description": "camera solution for raspberry pi",
+  "description": "A server that allows a raspberry pi camera to be controlled with an HTTP API.",
   "main": "index.js",
   "scripts": {
     "start": "nodemon ."
