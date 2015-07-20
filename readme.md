@@ -8,11 +8,12 @@ The server takes a picture every X seconds and also allows you to take a picture
 
 ### API
 
-take a picture = `$ curl -X POST http://raspberrypi:9000/camera` 
+take a picture = `$ curl -X POST http://raspberrypi:9000/camera`
 
 get the picture = `$ curl http://raspberrypi:9000/photo.jpg`
 
-configure photo options (raspistill) = `$ curl -X POST http://raspberrypi:9000/camera/options`
+**note:** you can optionally pass raspistill cli options, for example:
 
-
-**next:** build a UI in family-dashboard admin for viewing the photo, taking pictures on demand and configuring camera options
+``
+$ curl -X POST http://raspberrypi:9000/camera -H "Content-Type: application/json" -d '["-n","-w","1024","-h","768"]'
+``
