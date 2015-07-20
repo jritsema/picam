@@ -1,26 +1,28 @@
 var express = require('express');
 var process = require('child_process');
+var bodyParser = require('body-parser');
 
 var options = {
   photoPath: __dirname + '/photos/',
   fileName: 'photo.jpg',
-  photoInterval: 30
+  photoInterval: 30,
+  cliArgs: '-n -w 1024 -h 768'
 };
 
 function takePicture(callback) {
-  var raspistill = process.spawn('raspistill', [ '-o', options.photoPath + options.fileName, 
-    '-n', '-w', '1024', '-h', '768' ]);
+  // var raspistill = process.spawn('raspistill', [ '-o', options.photoPath + options.fileName, 
+  //   '-n', '-w', '1024', '-h', '768' ]);
   
-  raspistill.on('close', function (code) {
-    if (callback) 
-      callback(code);
-  });
+  // raspistill.on('close', function (code) {
+  //   if (callback) 
+  //     callback(code);
+  // });
 
-  // //testing
-  //console.log('click');  
-  // if (callback) 
-  //   callback(0);  
-  // //testing
+  //testing
+  console.log('click');  
+  if (callback) 
+    callback(0);  
+  //testing
 }
 
 var app = express();
@@ -32,12 +34,40 @@ app.use(function (req, res, next) {
   next();
 });
 
+app.use(bodyParser.json()); // for parsing application/json
+
 //api for taking a picture
-app.post('/camera', function (req, res) {
+app.post('/photo', function (req, res) {
+  if (req.body && req.body.cliArgs)
+    options.cliArgs = req.body.cliArgs;
+
   takePicture(function (code) {
     res.location('/photo.jpg');
     res.end();
   });
+});
+
+//api for reading camera options
+app.get('/camera', function (req, res) {
+  res.send(options);
+});
+
+//api for writing camera options
+app.put('/camera', function (req, res) {
+
+  if (req.body.photoPath)
+    options.photoPath = req.body.photoPath;
+
+  if (req.body.fileName)
+    options.fileName = req.body.fileName;
+
+  if (req.body.photoInterval)
+    options.photoInterval = req.body.photoInterval;
+
+  if (req.body.cliArgs)
+    options.cliArgs = req.body.cliArgs;
+
+  res.end();
 });
 
 app.use(express.static(options.photoPath));
