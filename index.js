@@ -10,19 +10,19 @@ var options = {
 };
 
 function takePicture(callback) {
-  // var raspistill = process.spawn('raspistill', [ '-o', options.photoPath + options.fileName, 
-  //   '-n', '-w', '1024', '-h', '768' ]);
+  var raspistill = process.spawn('raspistill', [ '-o', options.photoPath + options.fileName, 
+    '-n', '-w', '1024', '-h', '768' ]);
   
-  // raspistill.on('close', function (code) {
-  //   if (callback) 
-  //     callback(code);
-  // });
+  raspistill.on('close', function (code) {
+    if (callback) 
+      callback(code);
+  });
 
-  //testing
-  console.log('click');  
-  if (callback) 
-    callback(0);  
-  //testing
+  // //testing
+  // console.log('click');  
+  // if (callback) 
+  //   callback(0);  
+  // //testing
 }
 
 var app = express();
