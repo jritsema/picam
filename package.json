@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://jritsema@bitbucket.org/jritsema/picam.git"
+    "url": "https://github.com/jritsema/picam.git"
   },
   "keywords": [
     "raspberrypi",
     "camera",
     "pi"
   ],
-  "author": "John Ritsema",
+  "author": "john_ritsema@yahoo.com",
   "license": "ISC",
   "devDependencies": {
     "nodemon": "^1.3.7"
