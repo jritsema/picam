@@ -10,8 +10,16 @@ var options = {
 };
 
 function takePicture(callback) {
-  var raspistill = process.spawn('raspistill', [ '-o', options.photoPath + options.fileName, 
-    '-n', '-w', '1024', '-h', '768' ]);
+
+  var args1 = [ '-o', options.photoPath + options.fileName ];
+  
+  //parse cliArgs into array of strings
+  var args2 = options.cliArgs.split(' ');
+
+  var args = args1.concat(args2);
+  console.log(args);
+
+  var raspistill = process.spawn('raspistill', args);
   
   raspistill.on('close', function (code) {
     if (callback) 
