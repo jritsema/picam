@@ -51,7 +51,7 @@ app.post('/photo', function (req, res) {
 
   takePicture(function (code) {
     res.location('/photo.jpg');
-    res.end();
+    res.send(options);
   });
 });
 
@@ -75,7 +75,7 @@ app.put('/camera', function (req, res) {
   if (req.body.cliArgs)
     options.cliArgs = req.body.cliArgs;
 
-  res.end();
+  res.send(options);
 });
 
 app.use(express.static(options.photoPath));
