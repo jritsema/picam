@@ -4,7 +4,7 @@
   "description": "A server that allows a raspberry pi camera to be controlled with an HTTP API.",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon .",
+    "start": "node .",
     "deploy": "git push pi master && git push origin master"
   },
   "repository": {
