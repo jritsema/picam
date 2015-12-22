@@ -16,7 +16,6 @@ get camera options = `$ curl http://raspberrypi:9000/camera`
 
 set camera options = `$ curl -X PUT http://raspberrypi:9000/camera -H "Content-Type: application/json" -d '{}'`
 
-
 **note:** you can optionally pass camera options when taking a picture, for example:
 
 ``
