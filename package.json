@@ -1,11 +1,15 @@
 {
   "name": "picam",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "A server that allows a raspberry pi camera to be controlled with an HTTP API.",
   "main": "index.js",
   "scripts": {
     "start": "node .",
-    "deploy": "git push pi master && git push origin master"
+    "deploy": "git push pi master && git push origin master",
+    "build": "browserify admin/app.jsx > public/bundle.js",
+    "build-prod": "NODE_ENV=production browserify admin/app.jsx | uglifyjs -cm > public/bundle.js",
+    "watch": "watchify admin/app.jsx -o public/bundle.js -dv",
+    "web": "open http://localhost:9000/admin"
   },
   "repository": {
     "type": "git",
@@ -20,7 +24,22 @@
   "license": "ISC",
   "devDependencies": {},
   "dependencies": {
+    "babelify": "^6.1.3",
     "body-parser": "^1.13.2",
-    "express": "^4.13.1"
+    "browser-request": "^0.3.3",
+    "browserify": "^10.2.6",
+    "ecstatic": "~0.8.0",
+    "express": "^4.13.1",
+    "material-ui": "^0.13.4",
+    "react": "^0.14.3",
+    "react-dom": "^0.14.3",
+    "react-tap-event-plugin": "^0.2.1",
+    "uglify-js": "^2.4.24",
+    "watchify": "^3.2.3"
+  },
+  "browserify": {
+    "transform": [
+      "babelify"
+    ]
   }
 }

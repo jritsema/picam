@@ -12,7 +12,7 @@ var options = {
 function takePicture(callback) {
 
   var args1 = [ '-o', options.photoPath + options.fileName ];
-  
+
   //parse cliArgs into array of strings
   var args2 = options.cliArgs.split(' ');
 
@@ -20,16 +20,16 @@ function takePicture(callback) {
   console.log(args);
 
   var raspistill = process.spawn('raspistill', args);
-  
+
   raspistill.on('close', function (code) {
-    if (callback) 
+    if (callback)
       callback(code);
   });
 
   // //testing
-  // console.log('click');  
-  // if (callback) 
-  //   callback(0);  
+  // console.log('click');
+  // if (callback)
+  //   setTimeout(callback, 5000);
   // //testing
 }
 
@@ -78,7 +78,11 @@ app.put('/camera', function (req, res) {
   res.send(options);
 });
 
+//http://localhost:9000/photo.jpg
 app.use(express.static(options.photoPath));
+
+//http://localhost:9000/admin
+app.use('/admin', express.static(__dirname + '/public'));
 
 var server = app.listen(9000, function () {
   var host = server.address().address;
@@ -91,7 +95,7 @@ function takePictureAndScheduleNext() {
 }
 
 function scheduleNextPhoto() {
-  setTimeout(takePictureAndScheduleNext, options.photoInterval * 1000);  
+  setTimeout(takePictureAndScheduleNext, options.photoInterval * 1000);
 }
 
 //take a picture every x seconds
