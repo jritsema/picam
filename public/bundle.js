@@ -1,0 +1,1 @@
+console.error("Error: Cannot find module '/Users/john/code/picam/web/app.jsx' from '/Users/john/code/picam'");
