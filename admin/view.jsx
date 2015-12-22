@@ -7,7 +7,7 @@ import CircularProgress from 'material-ui/lib/circular-progress'
 
 export default React.createClass({
 
-  baseUrl: 'http://localhost:9000/',
+  baseUrl: '/',
 
   getInitialState() {
     return {

@@ -61,7 +61,7 @@ var _materialUiLibCircularProgress2 = _interopRequireDefault(_materialUiLibCircu
 exports['default'] = _react2['default'].createClass({
   displayName: 'view',
 
-  baseUrl: 'http://localhost:9000/',
+  baseUrl: '/',
 
   getInitialState: function getInitialState() {
     return {
