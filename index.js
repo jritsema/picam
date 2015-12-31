@@ -26,6 +26,14 @@ function takePicture(callback) {
       callback(code);
   });
 
+  raspistill.stdout.on('data', function (data) {
+    console.log('stdout: ' + data);
+  });
+
+  raspistill.stderr.on('data', function (data) {
+    console.log('stderr: ' + data);
+  });
+
   // //testing
   // console.log('click');  
   // if (callback) 
