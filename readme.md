@@ -26,16 +26,30 @@ $ curl -X POST http://raspberrypi:9000/photo -d '{}'
 
 Go to `http://raspberrypi:9000/admin` for the admin GUI that allows you to take a picture, view a picture, and change the camera options
 
-### Docker
+### Fresh pi setup
 
-Use the following to build a docker image that can be run on the pi using the [Hypriot OS](http://blog.hypriot.com/downloads)
+- flash sd card using hypriot's os that comes with docker preinstalled
+
+- attach raspberry pi camera
+
+- boot
+
+- optionally change passwd, and host name from black-pearl and enable wifi in `$ nano /boot/occidentalis.txt`
+
+- enable the camera in `$ sudo nano /boot/config.txt` and add the following lines
 
 ```
-$ docker build -t [user]/picam
+start_x=1
+disable_camera_led=1
+gpu_mem=128
 ```
 
-Use the following to start the container
+- reboot the pi
+
+- setup docker hub credentials using `$ docker login`
+
+- start the container
 
 ```
-$ docker run -p 9000:9000 --rm [user]/picam
+docker run -it --rm -p 80:9000 --device /dev/vchiq --name picam jritsema/rpi-picam
 ```
