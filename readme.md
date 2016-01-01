@@ -8,23 +8,23 @@ The server takes a picture every X seconds and also allows you to take a picture
 
 ### API
 
-take a picture = `$ curl -X POST http://raspberrypi:9000/photo`
+take a picture = `$ curl -X POST http://picam/photo`
 
-get the picture = `$ curl http://raspberrypi:9000/photo.jpg`
+get the picture = `$ curl http://picam/photo.jpg`
 
-get camera options = `$ curl http://raspberrypi:9000/camera`
+get camera options = `$ curl http://picam/camera`
 
-set camera options = `$ curl -X PUT http://raspberrypi:9000/camera -H "Content-Type: application/json" -d '{}'`
+set camera options = `$ curl -X PUT http://picam/camera -H "Content-Type: application/json" -d '{}'`
 
 **note:** you can optionally pass camera options when taking a picture, for example:
 
 ``
-$ curl -X POST http://raspberrypi:9000/photo -d '{}'
+$ curl -X POST http://picam/photo -d '{}'
 ``
 
 ### GUI
 
-Go to `http://raspberrypi:9000/admin` for the admin GUI that allows you to take a picture, view a picture, and change the camera options
+Go to `http://picam/admin` for the admin GUI that allows you to take a picture, view a picture, and change the camera options
 
 ### Fresh pi setup
 
