@@ -60,7 +60,12 @@ export default React.createClass({
       </div>
     );
 
-    let photo = <img src={this.state.imageUrl} />
+    let photo = (
+      <div>
+        <br/>
+        <img src={this.state.imageUrl} />
+      </div>
+    );
 
     let buttonText = this.state.shooting ? 'Taking Picture...' : 'Take Picture';
 
@@ -81,7 +86,7 @@ export default React.createClass({
           primary={true}
           onMouseUp={this.onTakePicture}
         />
-        <br/><br/>
+        <br/>
         {bottomPane}
       </div>
     );
