@@ -26,6 +26,17 @@ $ curl -X POST http://picam/photo -d '{}'
 
 Go to `http://picam/admin` for the admin GUI that allows you to take a picture, view a picture, and change the camera options
 
+### Docker
+
+To build and deploy the docker image...
+
+```
+$ docker build -t jritsema/rpi-picam:1.1.1 .
+$ docker tag -f x jritsema/rpi-picam:latest
+$ docker push jritsema/rpi-picam:1.1.1
+$ docker push jritsema/rpi-picam:latest
+```
+
 ### Fresh pi setup
 
 - flash sd card using hypriot's os that comes with docker preinstalled
