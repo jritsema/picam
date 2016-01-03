@@ -69,7 +69,12 @@ export default React.createClass({
     let photo = (
       <div>
         <br/>
-        <img src={this.state.imageUrl} />
+        <a href={this.state.imageUrl}>
+          <img
+            src={this.state.imageUrl}
+            style={{ width: 350, heigt: 263 }}
+          />
+        </a>
       </div>
     );
 
