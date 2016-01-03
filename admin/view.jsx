@@ -46,6 +46,12 @@ export default React.createClass({
     }.bind(this));
   },
 
+  onCliArgsChanged(event) {
+    this.setState({
+      options: { cliArgs: event.target.value }
+    });
+  },
+
   render() {
 
     //3 states:
@@ -79,6 +85,7 @@ export default React.createClass({
           hintText="raspistill options"
           floatingLabelText="raspistill options"
           defaultValue={options}
+          onChange={this.onCliArgsChanged}
         />
         <br/><br/>
         <RaisedButton
